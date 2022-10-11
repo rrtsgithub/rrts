@@ -4185,173 +4185,6 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
       }
     }
   </style>
-  <style id="carousel-stylesheet">
-    .carousel {
-      text-align: center;
-      position: relative;
-      opacity: 0;
-      margin: 0 auto;
-      transition: opacity 0.5s;
-    }
-
-    .carousel .carousel-container-inner {
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .carousel .carousel-viewport {
-      overflow: hidden;
-      white-space: nowrap;
-      text-align: left;
-    }
-
-    .carousel .carousel-arrow-default {
-      border: 3px solid !important;
-      border-radius: 50%;
-      color: rgba(255, 255, 255, 0.9);
-      height: 32px;
-      width: 32px;
-      font-weight: 900;
-      background: rgba(0, 0, 0, 0.15);
-    }
-
-    .carousel .carousel-arrow {
-      position: absolute;
-      z-index: 1;
-      bottom: 23px;
-      padding: 0;
-      cursor: pointer;
-      border: none;
-    }
-
-    .carousel .carousel-arrow:focus {
-      outline: none;
-    }
-
-    .carousel .carousel-arrow:before {
-      font-size: 19px;
-      display: block;
-      margin-top: -2px;
-    }
-
-    .carousel .carousel-arrow:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-
-    .carousel .carousel-left-arrow {
-      left: 23px;
-    }
-
-    .carousel .carousel-right-arrow {
-      right: 23px;
-    }
-
-    .carousel .carousel-left-arrow.carousel-arrow-default:before {
-      content: "<";
-      padding-right: 2px;
-    }
-
-    .carousel .carousel-right-arrow.carousel-arrow-default:before {
-      content: ">";
-      padding-left: 2px;
-    }
-
-    .carousel .carousel-track {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      touch-action: pan-y pinch-zoom;
-    }
-
-    .carousel .carousel-track .carousel-slide {
-      display: inline-block;
-      opacity: 0.7;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .carousel .carousel-track .carousel-slide>* {
-      display: block;
-      white-space: normal;
-    }
-
-    .carousel .carousel-track .carousel-slide.carousel-slide-loading {
-      background: rgba(204, 204, 204, 0.7);
-    }
-
-    .carousel .carousel-track .carousel-slide.carousel-slide-fade {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-    }
-
-    .carousel .carousel-track .carousel-slide.carousel-slide-selected {
-      opacity: 1;
-      z-index: 1;
-    }
-
-    .carousel.loaded {
-      opacity: 1;
-    }
-
-    .carousel .carousel-dots {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -30px;
-      text-align: center;
-    }
-
-    .carousel .carousel-dots li {
-      display: inline-block;
-    }
-
-    .carousel .carousel-dots button {
-      border: 0;
-      background: transparent;
-      font-size: 1.1em;
-      cursor: pointer;
-      color: #ccc;
-      padding-left: 6px;
-      padding-right: 6px;
-    }
-
-    .carousel .carousel-dots button.selected {
-      color: black;
-    }
-
-    .carousel .carousel-dots button:focus {
-      outline: none;
-    }
-
-    [dir="rtl"] .carousel .carousel-viewport {
-      text-align: right;
-    }
-
-    [dir="rtl"] .carousel .carousel-left-arrow {
-      left: unset;
-      right: 23px;
-    }
-
-    [dir="rtl"] .carousel .carousel-right-arrow {
-      right: unset;
-      left: 23px;
-    }
-
-    [dir="rtl"] .carousel .carousel-left-arrow.carousel-arrow-default:before {
-      padding-left: 2px;
-      padding-right: unset;
-    }
-
-    [dir="rtl"] .carousel .carousel-right-arrow.carousel-arrow-default:before {
-      padding-right: 2px;
-      padding-left: unset;
-    }
-  </style>
   <style>
     .page-inner {
       background-color: rgb(255, 255, 255);
@@ -4444,7 +4277,27 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
       height: 80px;
     }
 
+    .carousel-viewport {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-viewport img {
+      height: 300px;
+    }
+
     @media (min-width: 1280px) {
+      .carousel-viewport {
+        height: 600px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .carousel-viewport img {
+        height: 600px;
+      }
+
       .top-menu-wrapper {
         position: fixed;
         background-color: white;
@@ -4532,6 +4385,7 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
       }
     }
   </style>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body class="x x-fonts-playfair-display x-fonts-cabin x-fonts-raleway">
@@ -4852,66 +4706,23 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
                           <div class="carousel loaded" style="width: 100%; height: auto;">
                             <div class="carousel-container-inner"
                               style="width: 100%; height: auto; margin-bottom: 0px;">
-                              <div class="carousel-viewport" style="width: 100%; height: 600px;">
-                                <ul class="carousel-track"
-                                  style="line-height: 0; transition: none 0s ease 0s; transform: translateX(-1938.5px);">
-                                  <li data-index="-2" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
+                              <div class="carousel-viewport" style="overflow: hidden;">
+                                <ul class="carousel-track" style="margin: 0; padding: 0">
+                                  <li>
                                     <img
-                                      src="/public/img1.wsimg.com/isteam/stock/3468/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE2_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                      src="/public/img1.wsimg.com/isteam/stock/3468/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp" />
                                   </li>
-                                  <li data-index="-1" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
+                                  <li>
                                     <img
-                                      src="/public/img1.wsimg.com/isteam/ip/99c50270-63c0-4337-8a9d-d84b3263f0b3/nik-macmillan-280300-unsplash.jpg/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE3_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                      src="/public/img1.wsimg.com/isteam/ip/99c50270-63c0-4337-8a9d-d84b3263f0b3/nik-macmillan-280300-unsplash.jpg/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp">/
                                   </li>
-                                  <li data-index="0" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
+                                  <li>
                                     <img
-                                      src="/public/img1.wsimg.com/isteam/stock/8406/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE0_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                      src="/public/img1.wsimg.com/isteam/stock/8406/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp" />
                                   </li>
-                                  <li data-index="1" class="carousel-slide carousel-slide-selected"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 1;">
+                                  <li>
                                     <img
-                                      src="/public/img1.wsimg.com/isteam/stock/99530/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE1_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
-                                  </li>
-                                  <li data-index="2" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
-                                    <img
-                                      src="/public/img1.wsimg.com/isteam/stock/3468/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE2_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
-                                  </li>
-                                  <li data-index="3" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
-                                    <img
-                                      src="/public/img1.wsimg.com/isteam/ip/99c50270-63c0-4337-8a9d-d84b3263f0b3/nik-macmillan-280300-unsplash.jpg/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE3_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
-                                  </li>
-                                  <li data-index="4" class="carousel-slide"
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 0.3;">
-                                    <img
-                                      src="/public/img1.wsimg.com/isteam/stock/8406/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      alt="/public/img1.wsimg.com/isteam/stock/8406/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1300,h:800"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE0_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
-                                  </li>
-                                  <li data-index="5" class="carousel-slide "
-                                    style="margin-left: 5px; height: 600px; width: inherit; overflow: hidden; min-height: 600px; min-width: inherit; opacity: 1;">
-                                    <img
-                                      src="public/img1.wsimg.com/isteam/stock/99530/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp"
-                                      alt="/public/img1.wsimg.com/isteam/stock/99530/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1300,h:800"
-                                      data-ux="Image" data-aid="GALLERY_IMAGE1_RENDERED"
-                                      class="x-el x-el-img c2-1 c2-2 c2-1o c2-1p c2-i c2-h c2-c c2-d c2-1m c2-1q c2-1r c2-1s c2-1t c2-1u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8">
+                                      src="/public/img1.wsimg.com/isteam/stock/99530/crt0%25%2Cl0%25%2Cw100%25%2Ch100%25/rsw1300%2Ch800.webp" />
                                   </li>
                                 </ul>
                               </div>
@@ -5415,11 +5226,44 @@ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
   </div>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    crossorigin="anonymous"></script>
   <script>
     $(function () {
       $('.top-menu-humburger').click(() => {
         $(".top-menu-items").css("display", $(".top-menu-items").is(":visible") ? "none" : "block");
       })
+      $('.carousel-track').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
     });
   </script>
 </body>
