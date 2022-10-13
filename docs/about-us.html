@@ -2702,6 +2702,7 @@
     .top-menu .top-menu-logo {
       width: 80px;
       height: 80px;
+      cursor: pointer;
     }
 
     .top-menu .top-menu-items .top-menu-items-level2 a:after {
@@ -3172,6 +3173,7 @@
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script>
     $(function () {
+      $('.top-menu-logo').click(() => location.href = '/');
       $('.top-menu-humburger').click(() => {
         $(".top-menu-items").css("display", $(".top-menu-items").is(":visible") ? "none" : "block");
       })
