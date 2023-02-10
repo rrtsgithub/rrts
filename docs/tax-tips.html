@@ -3090,7 +3090,7 @@
                         <div data-ux="FooterDetails" data-aid="FOOTER_COPYRIGHT_RENDERED" data-typography="DetailsGamma"
                           class="x-el c1-8n c1-3v c1-1n c1-1o c1-2z c1-26 c1-t c1-b c1-8o c1-8p c1-34 c1-8q c1-8r c1-8s c1-8t c1-8u x-rt">
                           <p style="margin: 0">
-                            <span>Copyright © 2022 RR Tax Services - All Rights
+                            <span>Copyright © <span class="copy-right-year"/> RR Tax Services - All Rights
                               Reserved.</span>
                           </p>
                         </div>
@@ -3178,6 +3178,7 @@
       $('.top-menu-humburger').click(() => {
         $(".top-menu-items").css("display", $(".top-menu-items").is(":visible") ? "none" : "block");
       })
+            $('.copy-right-year').text(new Date().getYear() + 1900);
     });
   </script>
 </body>
